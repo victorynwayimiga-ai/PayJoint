@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAEC / JAMB Practice Quiz</title>
+    <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+    <header>
+        <h1>WAEC / JAMB Practice Quiz</h1>
+        <p class="tagline">Practise by subject, beat the clock, learn from every answer.</p>
+    </header>
+
+    <main>
+
+        <!-- ============ SETUP SCREEN ============ -->
+        <section id="setupScreen">
+            <div class="panel">
+                <h2>Start a practice session</h2>
+
+                <label for="subjectSelect">Subject</label>
+                <select id="subjectSelect"></select>
+
+                <label for="countSelect">Number of questions</label>
+                <select id="countSelect">
+                    <option value="5">5 questions</option>
+                    <option value="10" selected>10 questions</option>
+                    <option value="20">20 questions</option>
+                    <option value="all">All available</option>
+                </select>
+
+                <label>Mode</label>
+                <div class="mode-row">
+                    <label class="radio">
+                        <input type="radio" name="mode" value="practice" checked>
+                        <span><strong>Practice</strong><br><small>See the answer and explanation straight away.</small></span>
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="mode" value="exam">
+                        <span><strong>Exam</strong><br><small>No feedback until you submit, like the real thing.</small></span>
+                    </label>
+                </div>
+
+                <label class="check"><input type="checkbox" id="timedBox"> Timed (1 minute per question)</label>
+
+                <button type="button" id="startBtn" class="primary wide">Start quiz</button>
+            </div>
+
+            <div class="panel">
+                <h2>Your progress</h2>
+                <div id="bestBox" class="best"></div>
+                <ul id="historyList"></ul>
+                <p id="noHistory" class="empty">No attempts yet. Take your first quiz above.</p>
+                <button type="button" id="clearHistoryBtn" class="small danger" hidden>Clear history</button>
+            </div>
+        </section>
+
+        <!-- ============ QUIZ SCREEN ============ -->
+        <section id="quizScreen" hidden>
+            <div class="panel">
+                <div class="quiz-top">
+                    <div>
+                        <span id="subjectTag" class="tag"></span>
+                        <strong id="progressText"></strong>
+                    </div>
+                    <div id="timer" class="timer" hidden>00:00</div>
+                </div>
+
+                <div class="bar"><div id="barFill"></div></div>
+
+                <h2 id="questionText" class="question"></h2>
+                <div id="optionsBox" class="options"></div>
+                <div id="feedback" class="feedback" hidden></div>
+
+                <div class="nav">
+                    <button type="button" id="prevBtn" class="secondary">← Previous</button>
+                    <button type="button" id="nextBtn" class="primary">Next →</button>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h3>Questions</h3>
+                <div id="palette" class="palette"></div>
+                <div class="actions">
+                    <button type="button" id="submitBtn" class="primary">Submit quiz</button>
+                    <button type="button" id="quitBtn" class="danger">Quit</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ RESULT SCREEN ============ -->
+        <section id="resultScreen" hidden>
+            <div class="panel result-top">
+                <h2>Your result</h2>
+                <div id="scoreCircle" class="score-circle"><span id="scorePercent">0%</span></div>
+                <p id="scoreText" class="score-text"></p>
+                <p id="scoreMessage" class="muted"></p>
+                <div class="actions">
+                    <button type="button" id="retryBtn" class="primary">Try again</button>
+                    <button type="button" id="homeBtn" class="secondary">Back to home</button>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h2>Review your answers</h2>
+                <label class="check"><input type="checkbox" id="onlyWrong"> Show only mistakes and skipped questions</label>
+                <div id="reviewList"></div>
+            </div>
+        </section>
+
+        <p class="note">Sample practice questions for revision. Always confirm with your official past-question books and syllabus.</p>
+    </main>
+
+    <script src="questions.js"></script>
+    <script src="quiz.js"></script>
+</body>
+</html>
