@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajo Circle | Esusu Savings Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>AjoBridge</h1>
+        <p class="tagline">Run your Ajo / Esusu group with clear records. No more "who has paid?" arguments.</p>
+    </header>
+
+    <main>
+        <!-- Groups -->
+        <section class="panel">
+            <h2>My groups</h2>
+            <label for="groupSelect">Choose a group</label>
+            <select id="groupSelect"></select>
+
+            <details id="newGroupDetails">
+                <summary>+ Create a new Ajo group</summary>
+                <form id="groupForm" novalidate>
+                    <label for="gName">Group name</label>
+                    <input id="gName" type="text" placeholder="Market Women Ajo, Office Esusu..." autocomplete="off">
+
+                    <label for="gAmount">Contribution per person (₦)</label>
+                    <input id="gAmount" type="number" min="0" step="any" placeholder="10000" inputmode="decimal">
+
+                    <label for="gFreq">How often does everyone pay?</label>
+                    <select id="gFreq">
+                        <option value="daily">Daily</option>
+                        <option value="weekly" selected>Weekly</option>
+                        <option value="monthly">Monthly</option>
+                    </select>
+
+                    <label for="gStart">First payout date</label>
+                    <input id="gStart" type="date">
+
+                    <button type="submit" class="primary">Create group</button>
+                </form>
+            </details>
+        </section>
+
+        <p id="noGroup" class="empty">No group yet. Create your first Ajo group above.</p>
+
+        <!-- Group detail -->
+        <section id="detail" hidden>
+            <div class="panel">
+                <div class="title-row">
+                    <div>
+                        <h2 id="groupTitle"></h2>
+                        <p id="groupMeta" class="muted"></p>
+                    </div>
+                    <button type="button" id="deleteGroupBtn" class="danger small">Delete group</button>
+                </div>
+
+                <div class="summary">
+                    <div class="card"><span>Members</span><strong id="stMembers">0</strong></div>
+                    <div class="card"><span>Pot per round</span><strong id="stPot">₦0</strong></div>
+                    <div class="card"><span>Round</span><strong id="stRound">-</strong></div>
+                    <div class="card"><span>Next payout date</span><strong id="stDue">-</strong></div>
+                </div>
+
+                <div id="roundBanner" class="banner" hidden></div>
+
+                <div id="progressWrap" hidden>
+                    <div class="progress"><div id="progressBar"></div></div>
+                    <p id="progressText" class="muted"></p>
+                </div>
+            </div>
+
+            <!-- Setup (before the group starts) -->
+            <div id="setupPanel" class="panel">
+                <h2>Add members</h2>
+                <p class="muted">Add everyone, then arrange the payout order (who collects first, second...). The order locks once you start.</p>
+                <form id="memberForm" novalidate>
+                    <label for="mName">Member name</label>
+                    <input id="mName" type="text" placeholder="Mama Tunde" autocomplete="off">
+                    <label for="mPhone">Phone (optional, for WhatsApp reminders)</label>
+                    <input id="mPhone" type="tel" placeholder="08012345678" inputmode="numeric">
+                    <button type="submit" class="primary">Add member</button>
+                </form>
+                <div class="actions">
+                    <button type="button" id="shuffleBtn" class="secondary">Shuffle order (fair draw)</button>
+                    <button type="button" id="startBtn" class="primary">Start Ajo</button>
+                </div>
+            </div>
+
+            <!-- Members -->
+            <div class="panel">
+                <h2 id="membersTitle">Members and payout order</h2>
+                <ul id="memberList"></ul>
+                <p id="noMembers" class="empty">No members yet.</p>
+                <button type="button" id="payoutBtn" class="primary wide" hidden></button>
+                <button type="button" id="newCycleBtn" class="secondary wide" hidden>Start a new cycle with the same members</button>
+            </div>
+
+            <!-- History -->
+            <div class="panel">
+                <h2>Payout history</h2>
+                <ul id="historyList"></ul>
+                <p id="noHistory" class="empty">No payouts recorded yet.</p>
+            </div>
+        </section>
+
+        <p class="note">This app only keeps records. It does not hold or move money, so agree rules with your group and keep your own backup.</p>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

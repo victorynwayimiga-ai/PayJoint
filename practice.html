@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajo Circle | Esusu Savings Tracker</title>
+    <link rel="stylesheet" href="practice.css">
+</head>
+<body>
+    <header>
+        <h1>AjoBridge</h1>
+        <p class="tagline">Run your Ajo / Esusu group with clear records. No more "who has paid?" arguments.</p>
+    </header>
+
+    <main>
+        <!-- Group creation -->
+         <section class="panel">
+            <h2>My groups</h2>
+            <label for="groupSelect">Choose a Group</label>
+            <select id="groupSelect"></select>
+
+            <details id="newGroupDetails">
+                <summary>+ Create a new Ajo/Esusu Group</summary>
+                <form id="groupForm">
+                    <label for="groupSelect">Group name</label>
+                    <input id="gName" type="text" placeholder="Market Women Ajo, Office Esusu..." autocomplete="off">
+
+                    <label for="gAmount">Contribution per person (₦)</label>
+                    <input id="gAmount" type="number" min="100" step="5" placeholder="10000">
+
+                    <label for="gFreq">How often does everyone pay?</label>
+                    <select id="gFreq">
+                        <option value="daily" selected>Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly">Monthly</option>
+                    </select>
+
+                    <label for="gStart">First payout date</label>
+                    <input id="gStart" type="date">
+
+                    <button type="submit" class="primary" hover>Create group</button>
+                </form>
+            </details>
+         </section>
+
+         <p id="noGroup" class="empty">No group yet. Create your first Ajo/Esusu group above.</p>
+
+        <!-- Group detail -->
+        <section id="detail" hidden>
+            <div class="panel">
+                <div class="title-row">
+                    <div>
+                        <h2 id="groupTitle"></h2>
+                        <p id="groupMeta" class="muted"></p>
+                    </div>
+                    <button type="button" id="deleteGroupBtn" class="danger small">Delete group</button>
+                </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

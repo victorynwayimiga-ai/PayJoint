@@ -1,0 +1,131 @@
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: #f5f4ee;
+    color: #23291f;
+    line-height: 1.4;
+}
+
+header {
+    background: #0b6b3a;
+    color: #fff;
+    padding: 20px 16px;
+    text-align: center;
+    border-bottom: 4px solid #e0a800;
+}
+header h1 { margin: 0; font-size: 1.6rem; }
+.tagline { margin: 4px 0 0; opacity: .92; font-size: .9rem; }
+
+main { max-width: 720px; margin: 0 auto; padding: 16px; }
+
+.panel {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.08);
+}
+.panel h2 { margin: 0 0 8px; font-size: 1.15rem; }
+.muted { color: #667061; font-size: .85rem; margin: 2px 0 10px; }
+.title-row { display: flex; justify-content: space-between; gap: 10px; align-items: flex-start; }
+
+label { display: block; margin: 12px 0 4px; font-size: .85rem; font-weight: 600; }
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #cfd4c8;
+    border-radius: 8px;
+    background: #fff;
+}
+input:focus, select:focus { outline: 2px solid #0b6b3a; border-color: transparent; }
+
+details { margin-top: 14px; }
+summary { cursor: pointer; font-weight: 600; color: #0b6b3a; padding: 6px 0; }
+
+button {
+    font-size: 1rem;
+    border: 0;
+    border-radius: 8px;
+    padding: 10px 14px;
+    cursor: pointer;
+    background: #e8ebe3;
+    color: #23291f;
+}
+button:disabled { opacity: .5; cursor: not-allowed; }
+button.primary { background: #0b6b3a; color: #fff; font-weight: 600; margin-top: 14px; }
+button.primary:hover:not(:disabled) { background: #095a31; }
+button.secondary { background: #e8ebe3; }
+button.danger { background: #fbe3e0; color: #c0392b; }
+button.ok { background: #d9f1e2; color: #0b6b3a; }
+button.warn { background: #fff0c9; color: #7a5b00; }
+button.small { padding: 6px 10px; font-size: .8rem; }
+button.wide { width: 100%; margin-top: 12px; }
+
+.actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+.actions button { flex: 1; margin-top: 0; }
+
+/* summary cards */
+.summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 12px 0;
+}
+@media (min-width: 560px) { .summary { grid-template-columns: repeat(4, 1fr); } }
+.card { background: #f5f4ee; border-radius: 10px; padding: 10px; }
+.card span { display: block; font-size: .74rem; color: #667061; }
+.card strong { font-size: 1.05rem; }
+
+.banner {
+    background: #fff6d6;
+    border: 1px solid #ecd27a;
+    color: #6b5000;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+.banner.done { background: #d9f1e2; border-color: #a9d9bb; color: #0b6b3a; }
+
+.progress { height: 12px; background: #e8ebe3; border-radius: 999px; overflow: hidden; margin-top: 12px; }
+#progressBar { height: 100%; width: 0; background: #0b6b3a; transition: width .25s; }
+
+/* lists */
+ul { list-style: none; margin: 0; padding: 0; }
+
+.member {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 6px 10px;
+    align-items: center;
+    padding: 10px;
+    border-left: 4px solid #cfd4c8;
+    background: #fafaf6;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+.member.current { border-left-color: #e0a800; background: #fff9e3; }
+.member.received { border-left-color: #0b6b3a; }
+.member .order {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: #0b6b3a; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: .85rem; font-weight: 700;
+}
+.member .info small { display: block; color: #667061; font-size: .78rem; }
+.member .btns { grid-column: 1 / -1; display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+
+.badge { font-size: .75rem; padding: 4px 8px; border-radius: 999px; background: #e8ebe3; }
+.badge.current { background: #fff0c9; color: #7a5b00; font-weight: 700; }
+.badge.received { background: #d9f1e2; color: #0b6b3a; }
+
+.history { padding: 8px 0; border-bottom: 1px solid #eceee6; }
+.history small { display: block; color: #667061; font-size: .78rem; }
+
+.empty { text-align: center; color: #667061; padding: 12px 0; }
+.note { font-size: .78rem; color: #667061; text-align: center; margin-top: 8px; }
+
+[hidden] { display: none !important; }

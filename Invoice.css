@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: #eef1ee;
+    color: #1f2a24;
+    line-height: 1.4;
+}
+
+header {
+    background-color: rgb(51, 84, 230);
+    text-align: center;
+    padding: 20px 16px;
+    text-align: center;
+    border-bottom: 4px solid #e0a800;
+}
+
+header h1 {
+     margin: 0; 
+     font-size: 1.5rem; 
+}
+
+.tagline { 
+    margin: 4px 0 0;
+    opacity: .92;
+    font-size: .9rem; 
+}
